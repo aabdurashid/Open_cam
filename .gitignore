@@ -1,0 +1,6 @@
+.env
+__pycache__/
+*.pyc
+reports/live_metrics.json
+reports/live_metrics.json.tmp
+venv/

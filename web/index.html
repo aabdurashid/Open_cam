@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Statistika Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Live analytics</p>
+          <h1>Statistika dashboard</h1>
+        </div>
+        <div class="status">
+          <span id="statusPill" class="pill">Waiting</span>
+          <span id="lastUpdate" class="timestamp">--</span>
+        </div>
+      </header>
+
+      <section class="cards">
+        <article class="card">
+          <h3>Odamlar soni</h3>
+          <p id="statCount" class="value">--</p>
+          <span class="hint">Hozirgi aniqlangan son</span>
+        </article>
+        <article class="card">
+          <h3>Prognoz 5s</h3>
+          <p id="statPred" class="value">--</p>
+          <span class="hint">Qisqa muddatli taxmin</span>
+        </article>
+        <article class="card">
+          <h3>O'rtacha tezlik</h3>
+          <p id="statSpeed" class="value">--</p>
+          <span class="hint">Kadrdagi harakat signali</span>
+        </article>
+        <article class="card">
+          <h3>Anomaliyalar</h3>
+          <p id="statAnom" class="value">--</p>
+          <span class="hint">Kadr bo'yicha holatlar</span>
+        </article>
+        <article class="card">
+          <h3>O'rtacha son</h3>
+          <p id="statAvgCount" class="value">--</p>
+          <span class="hint">Sessiya bo'yicha</span>
+        </article>
+        <article class="card">
+          <h3>Maksimal son</h3>
+          <p id="statMaxCount" class="value">--</p>
+          <span class="hint">Eng yuqori ko'rsatkich</span>
+        </article>
+        <article class="card">
+          <h3>Maksimal tezlik</h3>
+          <p id="statMaxSpeed" class="value">--</p>
+          <span class="hint">Eng yuqori harakat</span>
+        </article>
+        <article class="card">
+          <h3>Anomaliya ulushi</h3>
+          <p id="statAnomRate" class="value">--</p>
+          <span class="hint">Kadrlar ichidagi ulush</span>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <section class="panel chart-panel">
+          <div class="panel-head">
+            <h2>Trend</h2>
+            <span class="muted">So'nggi ma'lumotlar</span>
+          </div>
+          <canvas id="countChart" width="960" height="300"></canvas>
+        </section>
+
+        <section class="panel details-panel">
+          <div class="panel-head">
+            <h2>Qo'shimcha</h2>
+          </div>
+          <dl class="details">
+            <div>
+              <dt>Peak time</dt>
+              <dd id="statPeakTime">--</dd>
+            </div>
+            <div>
+              <dt>Total frames</dt>
+              <dd id="statFrames">--</dd>
+            </div>
+            <div>
+              <dt>FPS</dt>
+              <dd id="statFps">--</dd>
+            </div>
+          </dl>
+        </section>
+      </section>
+
+      <section class="panel chat">
+        <div class="panel-head">
+          <h2>ChatGPT yordamchi</h2>
+          <span class="muted">Statistikalar bo'yicha savol bering</span>
+        </div>
+        <div id="chatLog" class="chat-log" aria-live="polite"></div>
+        <form id="chatForm" class="chat-form" autocomplete="off">
+          <input
+            id="chatInput"
+            type="text"
+            placeholder="Masalan: bugungi anomal trendni tushuntir"
+            required
+          />
+          <button type="submit">Yuborish</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
